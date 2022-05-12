@@ -1,0 +1,13 @@
+{
+  "criterias": [
+    {"lastName": "Иванова"},
+    {"lastName": "И"},
+    {"lastName": "М"},
+    {"productName": "Чипсы", "minTimes": 3},
+    {"productName": "Сливки", "minTimes": 2},
+    {"minExpenses": 350, "maxExpenses": 1000},
+    {"minExpenses": 0, "maxExpenses": 350},
+    {"badCustomers": 3},
+    {"badCustomers": 1}
+  ]
+}

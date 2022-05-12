@@ -1,0 +1,4 @@
+datasource:
+  url: jdbc:postgresql://localhost:5430/demoDB
+  username: usr
+  password: pwd
