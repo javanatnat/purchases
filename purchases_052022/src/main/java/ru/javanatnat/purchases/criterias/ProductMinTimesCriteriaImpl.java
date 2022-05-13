@@ -60,4 +60,27 @@ public class ProductMinTimesCriteriaImpl
                 ", minTimes=" + minTimes +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof ProductMinTimesCriteriaImpl criteria)) {
+            return false;
+        }
+
+        if (minTimes != criteria.minTimes) {
+            return false;
+        }
+
+        return productName.equals(criteria.productName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = productName.hashCode();
+        result = 31 * result + minTimes;
+        return result;
+    }
 }

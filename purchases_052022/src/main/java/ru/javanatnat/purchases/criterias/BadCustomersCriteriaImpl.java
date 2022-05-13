@@ -53,4 +53,21 @@ public class BadCustomersCriteriaImpl
                 "countCustomers=" + countCustomers +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof BadCustomersCriteriaImpl criteria)) {
+            return false;
+        }
+
+        return countCustomers == criteria.countCustomers;
+    }
+
+    @Override
+    public int hashCode() {
+        return countCustomers;
+    }
 }

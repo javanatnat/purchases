@@ -89,4 +89,35 @@ public class StatisticIntervalCriteriaImpl {
         int days = (int) countDays;
         return (days + 1);
     }
+
+    @Override
+    public String toString() {
+        return "StatisticIntervalCriteriaImpl{" +
+                "startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof StatisticIntervalCriteriaImpl criteria)) {
+            return false;
+        }
+
+        if (!startDate.equals(criteria.startDate)) {
+            return false;
+        }
+
+        return endDate.equals(criteria.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = startDate.hashCode();
+        result = 31 * result + endDate.hashCode();
+        return result;
+    }
 }

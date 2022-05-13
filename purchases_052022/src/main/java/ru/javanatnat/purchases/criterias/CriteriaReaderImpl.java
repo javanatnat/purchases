@@ -21,6 +21,11 @@ public class CriteriaReaderImpl extends RequestReader<List<Criteria>> {
     private static final String MIN_EXPENSES = "minExpenses";
     private static final String MAX_EXPENSES = "maxExpenses";
     private static final String BAD_CUSTOMERS = "badCustomers";
+
+    public CriteriaReaderImpl() {
+        super();
+    }
+
     @Override
     public List<Criteria> read(String fileName){
         LOG.info("read request from file: {}", fileName);
