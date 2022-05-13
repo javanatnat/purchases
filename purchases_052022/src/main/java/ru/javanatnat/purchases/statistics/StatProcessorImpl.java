@@ -9,9 +9,14 @@ import ru.javanatnat.purchases.search.IllegalSearchCriteriaException;
 
 public class StatProcessorImpl implements Processor {
     private final DbExecutor dbExecutor;
+    private final StatReaderImpl reader;
 
-    public StatProcessorImpl(DbExecutor dbExecutor) {
+    public StatProcessorImpl(
+            DbExecutor dbExecutor,
+            StatReaderImpl reader
+    ) {
         this.dbExecutor = dbExecutor;
+        this.reader = reader;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class StatProcessorImpl implements Processor {
 
         double avgSum = 0;
         if (count > 0) {
-            avgSum = totalSum/count;
+            avgSum = totalSum/ (double) count;
         }
 
         response.setTotalExpenses(totalSum);
@@ -50,9 +55,8 @@ public class StatProcessorImpl implements Processor {
         return response;
     }
 
-    private static StatisticIntervalCriteriaImpl getStatCriteria(String filename) {
+    private StatisticIntervalCriteriaImpl getStatCriteria(String filename) {
         try {
-            StatReaderImpl reader = new StatReaderImpl();
             return reader.read(filename);
         } catch (Exception e) {
             throw new IllegalSearchCriteriaException(

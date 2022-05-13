@@ -30,4 +30,12 @@ public class CriteriaResponseRowResult {
     public void addBuyers(List<Buyer> buyers) {
         results.addAll(buyers);
     }
+
+    @Override
+    public String toString() {
+        return "CriteriaResponseRowResult{" +
+                "criteria=" + criteria +
+                ", results=" + results +
+                '}';
+    }
 }

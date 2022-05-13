@@ -29,4 +29,12 @@ public class CriteriaResponse implements Response {
     public void addRowResults(List<CriteriaResponseRowResult> rows) {
         results.addAll(rows);
     }
+
+    @Override
+    public String toString() {
+        return "CriteriaResponse{" +
+                "type='" + type + '\'' +
+                ", results=" + results +
+                '}';
+    }
 }

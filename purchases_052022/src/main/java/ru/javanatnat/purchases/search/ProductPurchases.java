@@ -34,4 +34,32 @@ public class ProductPurchases {
                 ", expenses=" + expenses +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof ProductPurchases productPurchases)) {
+            return false;
+        }
+
+        if (expenses != productPurchases.expenses) {
+            return false;
+        }
+
+        if (!id.equals(productPurchases.id)) {
+            return false;
+        }
+
+        return name.equals(productPurchases.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + expenses;
+        return result;
+    }
 }

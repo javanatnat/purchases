@@ -16,9 +16,14 @@ public class CriteriaProcessorImpl implements Processor {
     private static final Logger LOG = LoggerFactory.getLogger(CriteriaProcessorImpl.class);
 
     private final DbExecutor dbExecutor;
+    private final CriteriaReaderImpl reader;
 
-    public CriteriaProcessorImpl(DbExecutor dbExecutor) {
+    public CriteriaProcessorImpl(
+            DbExecutor dbExecutor,
+            CriteriaReaderImpl reader
+    ) {
         this.dbExecutor = dbExecutor;
+        this.reader = reader;
     }
 
     @Override
@@ -50,9 +55,8 @@ public class CriteriaProcessorImpl implements Processor {
         return response;
     }
 
-    private static List<Criteria> getCriterias(String filename) {
+    private List<Criteria> getCriterias(String filename) {
         try {
-            CriteriaReaderImpl reader = new CriteriaReaderImpl();
             return reader.read(filename);
         } catch (Exception e) {
             throw new IllegalSearchCriteriaException(
