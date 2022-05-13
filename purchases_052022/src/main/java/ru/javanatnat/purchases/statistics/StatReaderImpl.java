@@ -10,6 +10,11 @@ import java.io.IOException;
 
 public class StatReaderImpl extends RequestReader<StatisticIntervalCriteriaImpl> {
     private static final Logger LOG = LoggerFactory.getLogger(StatReaderImpl.class);
+
+    public StatReaderImpl() {
+        super();
+    }
+
     @Override
     public StatisticIntervalCriteriaImpl read(String fileName) {
         try {

@@ -37,4 +37,21 @@ public class LastNameCriteriaImpl
                 "lastName='" + lastName + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof LastNameCriteriaImpl criteria)) {
+            return false;
+        }
+
+        return lastName.equals(criteria.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return lastName.hashCode();
+    }
 }

@@ -68,4 +68,28 @@ public class MinMaxExpensesCriteriaImpl
                 ", maxExpenses=" + maxExpenses +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (! (o instanceof MinMaxExpensesCriteriaImpl criteria)) {
+            return false;
+        }
+
+        if (minExpenses != criteria.minExpenses) {
+            return false;
+        }
+
+        return maxExpenses == criteria.maxExpenses;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = minExpenses;
+        result = 31 * result + maxExpenses;
+        return result;
+    }
 }
