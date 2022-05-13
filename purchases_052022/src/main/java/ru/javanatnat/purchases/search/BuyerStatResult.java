@@ -59,4 +59,37 @@ public class BuyerStatResult {
                 ", totalExpenses=" + totalExpenses +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (! (o instanceof BuyerStatResult buyerStatResult)) {
+            return false;
+        }
+
+        if (totalExpenses != buyerStatResult.totalExpenses) {
+            return false;
+        }
+
+        if (!buyer.equals(buyerStatResult.buyer)) {
+            return false;
+        }
+
+        if (!name.equals(buyerStatResult.name)) {
+            return false;
+        }
+
+        return purchases.equals(buyerStatResult.purchases);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = buyer.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + purchases.hashCode();
+        result = 31 * result + totalExpenses;
+        return result;
+    }
 }

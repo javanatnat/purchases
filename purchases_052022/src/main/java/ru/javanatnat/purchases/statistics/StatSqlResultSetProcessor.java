@@ -24,7 +24,7 @@ public class StatSqlResultSetProcessor {
     private static final String PRODUCT_NAME = "product_name";
     private static final String PRODUCT_EXPENSES = "product_expenses";
 
-    static List<BuyerStatResult> getResult(ResultSet rs) {
+    public static List<BuyerStatResult> getResult(ResultSet rs) {
         LOG.debug("start parse stat result...");
         var result = new ArrayList<BuyerStatResult>();
         Buyer buyer = null;

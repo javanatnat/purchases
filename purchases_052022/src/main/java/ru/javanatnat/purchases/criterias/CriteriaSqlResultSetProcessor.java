@@ -14,7 +14,7 @@ public class CriteriaSqlResultSetProcessor {
     private static final String FIRSTNAME = "firstname";
     private static final String LASTNAME = "lastname";
 
-    static List<Buyer> getResult(ResultSet rs) {
+    public static List<Buyer> getResult(ResultSet rs) {
         var buyers = new ArrayList<Buyer>();
         try {
             while (rs.next()) {
